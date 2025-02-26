@@ -12,6 +12,12 @@ app.use('/api/v1/order', orderRouter);
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/email', emailRouter);
 
+app.get('/', (req, res) => {
+    res.send("Hello World!!")
+});
+
+app.get('/favicon.ico', (req, res) => res.status(204));
+
 const port = 3000;
 app.listen(port, () => {
     console.log('server is running at', port)
