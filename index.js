@@ -16,14 +16,14 @@ app.get('/', (req, res) => {
     res.send("Hello World!!")
 });
 
-app.get('/favicon.ico', (req, res) => res.status(204).end());
-// const ignoreFavicon = (req, res, next) => {
-//     if (req.originalUrl.includes('favicon.ico')) {
-//        res.status(204).end()       
-//     }
-//     next();
-// };
-// app.use(ignoreFavicon);
+// app.get('/favicon.ico', (req, res) => res.status(204).end());
+const ignoreFavicon = (req, res, next) => {
+    if (req.originalUrl.includes('favicon')) {
+       res.status(204).end()       
+    }
+    next();
+};
+app.use(ignoreFavicon);
 
 const port = 3000;
 app.listen(port, () => {

@@ -1,7 +1,7 @@
 const db_name = './jsonDB/user.json';
 const users = require(`.${db_name}`);
 const fs = require('fs');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 const generateToken = (payload) => {
